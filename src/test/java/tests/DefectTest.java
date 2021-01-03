@@ -3,6 +3,7 @@ package tests;
 import baseEntities.BaseTest;
 import baseEntities.TestCaseModel;
 import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.TestCasePage;
 import steps.LoginSteps;
@@ -10,13 +11,10 @@ import steps.TestCaseSteps;
 
 public class DefectTest extends BaseTest {
 
-    @Test(priority = 0)
-    public void openPage() {
-        new LoginSteps(driver).login(readProperties.getUserName(), readProperties.getPassword());
-    }
 
     @Test
     public void testCreateTestCase() {
+        new LoginSteps(driver).login(readProperties.getUserName(), readProperties.getPassword());
         TestCaseSteps testCaseSteps = new TestCaseSteps(driver);
         TestCasePage resultPage = testCaseSteps.createTestCase(TestCaseModel.builder()
                 .title(readProperties.getTitle())

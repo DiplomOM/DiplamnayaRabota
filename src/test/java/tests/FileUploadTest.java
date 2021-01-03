@@ -8,14 +8,9 @@ import steps.TestCaseSteps;
 
 public class FileUploadTest extends BaseTest {
 
-
-    @Test(priority = 0)
-    public void openPage() {
-        new LoginSteps(driver).login(readProperties.getUserName(), readProperties.getPassword());
-    }
-
     @Test(priority = 1)
     public void fileUploadTest() {
+        new LoginSteps(driver).login(readProperties.getUserName(), readProperties.getPassword());
         final TestCaseSteps testCaseSteps = new TestCaseSteps(driver);
         testCaseSteps.createTestCase(TestCaseModel.builder().title(readProperties.getTitle()).filePath("").build());
     }
