@@ -1,6 +1,7 @@
 package api;
 
 import baseEntities.BaseAPITest;
+import models.EndPoints;
 import org.apache.http.HttpStatus;
 import org.testng.annotations.Test;
 
@@ -11,15 +12,15 @@ public class TestGetUsers extends BaseAPITest {
 
     @Test
     public void getUsers(){
-        String endpoint = "index.php?/api/v2/get_users";
+
         given()
                 .when()
-                .get(endpoint)
+                .get(EndPoints.GET_USERS)
                 .then()
                 .log().body()
                 .body("id", hasItems(1, 2, 3))
-                .body("name", hasItem("Winnie-the-Pooh"))
-                .body("email[1]", equalTo("yuks23@yandex.ru"))
+                .body("name", hasItem("winnie-the-pooh"))
+                .body("email[2]", equalTo("yuks23@yandex.ru"))
                 .statusCode(HttpStatus.SC_OK)
                 .statusCode(200);
     }
