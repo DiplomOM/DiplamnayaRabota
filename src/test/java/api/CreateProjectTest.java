@@ -15,7 +15,7 @@ import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
 
 public class CreateProjectTest extends BaseAPITest {
-    private int projectId = 12;
+    private int projectId = 2;
 
     @Test (priority = 0)
     public void createProject() {
