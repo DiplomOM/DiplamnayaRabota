@@ -24,6 +24,12 @@ public class AddProjectPage extends BasePage {
     @FindBy(xpath = "//*[@class='content-inner goals-clear']//child::div[@class='message message-error']")
     public WebElement errorMessage;
 
+    @FindBy(xpath = "//a[@id='sidebar-projects-add']")
+    public WebElement addProjectButton;
+
+    @FindBy(xpath = "//div[@class='message message-error']")
+    public WebElement fieldNameErrorMessage;
+
     @Override
     protected void openPage() {
         driver.get(URL + ENDPOINT);
@@ -45,6 +51,14 @@ public class AddProjectPage extends BasePage {
 
     public String getErrorMessage() {
         return errorMessage.getText();
+    }
+
+    public void clickOnAddProjectButton() {
+        addProjectButton.submit();
+    }
+
+    public String getFieldNameErrorMsg() {
+        return fieldNameErrorMessage.getText();
     }
 
 }

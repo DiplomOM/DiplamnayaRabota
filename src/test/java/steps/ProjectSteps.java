@@ -19,4 +19,5 @@ public class ProjectSteps {
         page.clickAcceptButton();
         return page;
     }
+
 }
