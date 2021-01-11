@@ -1,24 +1,21 @@
 package tests;
 
 import baseEntities.BaseTest;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.AddProjectPage;
 import steps.LoginSteps;
-import steps.ProjectSteps;
 
-public class LimitValueTest extends BaseTest {
+public class CreateProject extends BaseTest {
 
     @Test
-    public void LimitValueTest() {
+    public void CreateProjectTest() {
         LoginSteps loginSteps = new LoginSteps(driver);
         loginSteps.login(readProperties.getUserName(), readProperties.getPassword());
 
         AddProjectPage projectPage = new AddProjectPage(driver, true);
+        projectPage.isPageOpened();
         projectPage.clickOnAddProjectButton();
+        projectPage.setInputField("test");
         projectPage.clickAcceptButton();
-        projectPage.getFieldNameErrorMsg();
-
-        Assert.assertEquals(projectPage.getFieldNameErrorMsg(), "");
     }
 }

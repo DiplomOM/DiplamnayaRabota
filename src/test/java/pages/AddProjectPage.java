@@ -30,6 +30,9 @@ public class AddProjectPage extends BasePage {
     @FindBy(xpath = "//div[@class='message message-error']")
     public WebElement fieldNameErrorMessage;
 
+    @FindBy(xpath = "//h2[@class='top' and contains(text(), \"In Progress\")]")
+    public WebElement workingOnBtn;
+
     @Override
     protected void openPage() {
         driver.get(URL + ENDPOINT);
@@ -61,4 +64,11 @@ public class AddProjectPage extends BasePage {
         return fieldNameErrorMessage.getText();
     }
 
+    public void clickOnWorkingOnBtn() {
+        workingOnBtn.click();
+    }
+
+    public void getPopUpMsg() {
+        workingOnBtn.isDisplayed();
+    }
 }
