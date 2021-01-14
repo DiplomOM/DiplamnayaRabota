@@ -8,17 +8,14 @@ import steps.LoginSteps;
 import steps.ProjectSteps;
 
 public class LimitValueTest extends BaseTest {
+    private ProjectSteps projectSteps;
 
     @Test
     public void LimitValueTest() {
         LoginSteps loginSteps = new LoginSteps(driver);
         loginSteps.login(readProperties.getUserName(), readProperties.getPassword());
 
-        AddProjectPage projectPage = new AddProjectPage(driver, true);
-        projectPage.clickOnAddProjectButton();
-        projectPage.clickAcceptButton();
-        projectPage.getFieldNameErrorMsg();
-
-        Assert.assertEquals(projectPage.getFieldNameErrorMsg(), "");
+        projectSteps = new ProjectSteps(driver);
+        projectSteps.limitValue();
     }
 }
