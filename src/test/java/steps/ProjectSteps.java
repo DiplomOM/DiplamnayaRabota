@@ -21,4 +21,27 @@ public class ProjectSteps {
 
         Assert.assertEquals(page.getErrorMessage(), "Field Name is a required field.");
     }
+
+    @Step
+    public void popUpField() {
+        AddProjectPage projectPage = new AddProjectPage(driver, true);
+        projectPage.isPageOpened();
+        projectPage.clickOnWorkingOnBtn();
+        projectPage.getPopUpMsg();
+
+        Assert.assertTrue(true);
+
+    }
+
+    @Step
+    public void limitValue() {
+        AddProjectPage limitvalue = new AddProjectPage(driver, true);
+        limitvalue.isPageOpened();
+        limitvalue.clickOnAddProjectButton();
+        limitvalue.clickAcceptButton();
+        limitvalue.getFieldNameErrorMsg();
+
+        Assert.assertEquals(limitvalue.getFieldNameErrorMsg(), "Field Name is a required field.");
+    }
 }
+
