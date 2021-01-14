@@ -2,8 +2,13 @@ package steps;
 
 import baseEntities.TestCaseModel;
 import io.qameta.allure.Step;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import pages.TestCasePage;
+
+import java.io.File;
+import java.net.URL;
 
 public class TestCaseSteps {
 
@@ -14,21 +19,26 @@ public class TestCaseSteps {
     }
 
     @Step
-    public TestCasePage createTestCase(TestCaseModel testCase) {
+    public void createTestCaseWithNegativeEstimate(TestCaseModel testCase) {
         final TestCasePage testCasePage = new TestCasePage(driver, true);
-        if (testCase.getTitle() != null) {
-            testCasePage.setInputForm(testCase.getTitle());
-        }
-        if (testCase.getEstimate() != null) {
-            testCasePage.setEstimate(testCase.getEstimate());
-        }
-        if (testCase.getFilePath() != null) {
-            //        testCasePage.openPreconditionsForm();
-//        testCasePage.uploadFile("C:/Users/user/Downloads/Telegram Desktop/Screenshot_1.png");
-//        testCasePage.submitAddButton();
-        }
+        testCasePage.setInputForm(testCase.getTitle());
+        testCasePage.setEstimate(testCase.getEstimate());
         testCasePage.submitAcceptButton();
-        return testCasePage;
+
+        Assert.assertEquals(testCasePage.getErrorMessage(), "Field Estimate is not in a valid time span format.");
+    }
+
+    @Step
+    public void uploadFile(TestCaseModel testCase) {
+        final TestCasePage testCasePage = new TestCasePage(driver, true);
+        testCasePage.setInputForm(testCase.getTitle());
+        testCasePage.openPreconditionsForm();
+        testCasePage.uploadFile(testCase.getFilePath());
+        testCasePage.submitAddButton();
+        testCasePage.submitAcceptButton();
+
+        Assert.assertEquals(driver.findElement(By.className("message-success")).getText(),
+                "Successfully added the new test case. Add another");
     }
 
 }
