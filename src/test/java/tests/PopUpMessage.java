@@ -2,7 +2,6 @@ package tests;
 
 import baseEntities.BaseTest;
 import org.testng.annotations.Test;
-import pages.AddProjectPage;
 import steps.LoginSteps;
 import steps.ProjectSteps;
 

@@ -24,15 +24,17 @@ public class AddProjectPage extends BasePage {
     @FindBy(xpath = "//*[@class='content-inner goals-clear']//child::div[@class='message message-error']")
     public WebElement errorMessage;
 
-    @FindBy(xpath = "//a[@id='sidebar-projects-add']")
+    @FindBy(xpath = "//button[@id='accept']")
     public WebElement addProjectButton;
 
     @FindBy(xpath = "//div[@class='message message-error']")
     public WebElement fieldNameErrorMessage;
 
-    @FindBy(xpath = "//h2[@class='top' and contains(text(), \"In Progress\")]")
+    @FindBy(xpath = "//a[@id='inProgressLink']")
     public WebElement workingOnBtn;
 
+    @FindBy(xpath = "//div[@id='inProgressDropdown']")
+    public WebElement popUpMsg;
     @Override
     protected void openPage() {
         driver.get(URL + ENDPOINT);
@@ -69,6 +71,6 @@ public class AddProjectPage extends BasePage {
     }
 
     public void getPopUpMsg() {
-        workingOnBtn.isDisplayed();
+        popUpMsg.isDisplayed();
     }
 }
