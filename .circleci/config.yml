@@ -24,10 +24,10 @@ jobs:
       # run tests!
       - run:
           name: Running tests
-          command: mvn clean install
+          command: mvn clean verify
       - run:
           name: Generate allure report
-          command: mvn allure:report
+          command: allure serve
           when: always
       - store_test_results:
           path: target/surefire-reports/junitreports
