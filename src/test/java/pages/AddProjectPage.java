@@ -33,12 +33,15 @@ public class AddProjectPage extends BasePage {
     @FindBy(xpath = "//a[@id='inProgressLink']")
     public WebElement workingOnBtn;
 
-    @FindBy(xpath = "//div[@id='inProgressDropdown']")
+    @FindBy(xpath = "//div[@id='helpDropdown']")
     public WebElement popUpMsg;
+
+    @FindBy(xpath = "//div[@class='message message-success']")
+    public WebElement successMsg;
+
     @Override
     protected void openPage() {
         driver.get(URL + ENDPOINT);
-
     }
 
     @Override
@@ -72,5 +75,9 @@ public class AddProjectPage extends BasePage {
 
     public void getPopUpMsg() {
         popUpMsg.isDisplayed();
+    }
+
+    public String getSuccessMsg() {
+        return successMsg.getText();
     }
 }
