@@ -14,6 +14,6 @@ public class CreateProject extends BaseTest {
         loginSteps.login(readProperties.getUserName(), readProperties.getPassword());
 
         projectSteps = new ProjectSteps(driver);
-        projectSteps.createProject("mikeProject");
+        projectSteps.createPositiveProject("mikeProject");
     }
 }

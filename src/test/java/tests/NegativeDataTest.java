@@ -16,6 +16,4 @@ public class NegativeDataTest extends BaseTest {
         final ProjectSteps projectSteps = new ProjectSteps(driver);
         projectSteps.createProject(" ");
     }
-
-
 }

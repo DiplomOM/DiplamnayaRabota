@@ -19,7 +19,7 @@ public class ProjectSteps {
         page.setInputField(title);
         page.clickAcceptButton();
 
-        Assert.assertEquals(page.getSuccessMsg(), "Successfully added the new project.");
+        Assert.assertEquals(page.getErrorMessage(), "Field Name is a required field.");
     }
 
     @Step
@@ -42,6 +42,15 @@ public class ProjectSteps {
         limitvalue.getFieldNameErrorMsg();
 
          Assert.assertEquals(limitvalue.getFieldNameErrorMsg(), "Field Name is a required field.");
+    }
+
+    @Step
+    public void createPositiveProject(String title) {
+        final AddProjectPage page = new AddProjectPage(driver, true);
+        page.setInputField(title);
+        page.clickAcceptButton();
+
+        Assert.assertEquals(page.getSuccessMsg(), "Successfully added the new project.");
     }
 }
 

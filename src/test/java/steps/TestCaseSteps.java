@@ -7,8 +7,6 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import pages.TestCasePage;
 
-import java.io.File;
-import java.net.URL;
 
 public class TestCaseSteps {
 
@@ -40,5 +38,4 @@ public class TestCaseSteps {
         Assert.assertEquals(driver.findElement(By.className("message-success")).getText(),
                 "Successfully added the new test case. Add another");
     }
-
 }
