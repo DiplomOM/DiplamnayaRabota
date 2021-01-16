@@ -20,7 +20,6 @@ public class BrowserService {
                 WebDriverManager.getInstance(driverManagerType).setup();
 
                 ChromeOptions chromeOptions = new ChromeOptions();
-                chromeOptions.addArguments("--disable-gpu");
                 chromeOptions.addArguments("--start-maximized");
                 chromeOptions.setHeadless(readProperties.isHeadless());
 
