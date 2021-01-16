@@ -4,18 +4,15 @@ import baseEntities.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 public class AddProjectPage extends BasePage {
 
     private static String ENDPOINT = "/admin/projects/add/1";
-    private static String ENDPOINT2 = "/admin/projects/overview";
 
     public AddProjectPage(WebDriver driver, boolean openPageByUrl) {
         super(driver, openPageByUrl);
     }
-
 
     @FindBy(id = "name")
     public WebElement inputField;
@@ -60,11 +57,6 @@ public class AddProjectPage extends BasePage {
         return true;
     }
 
-
-    public void openProjectPage() {
-        driver.get(URL + ENDPOINT2);
-    }
-
     public void setInputField(String text) {
         inputField.sendKeys(text);
     }
@@ -95,18 +87,5 @@ public class AddProjectPage extends BasePage {
 
     public String getSuccessMsg() {
         return successMsg.getText();
-    }
-
-    public WebElement clickDeleteBtn() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        return deleteBtn;
-    }
-
-    public void clickCheckBoxBtn() {
-        checkboxBtn.click();
-    }
-
-    public void clickOkBtn() {
-        okBtn.click();
     }
 }

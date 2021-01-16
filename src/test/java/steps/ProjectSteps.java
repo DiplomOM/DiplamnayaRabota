@@ -4,6 +4,7 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import pages.AddProjectPage;
+import pages.DeleteProjectPage;
 
 public class ProjectSteps {
 
@@ -55,8 +56,8 @@ public class ProjectSteps {
 
     @Step
     public void deleteProject() {
-        AddProjectPage delete = new AddProjectPage(driver, true);
-        delete.openProjectPage();
+        DeleteProjectPage delete = new DeleteProjectPage(driver, true);
+        //delete.openPage();
         delete.clickDeleteBtn().click();
         delete.clickCheckBoxBtn();
         delete.clickOkBtn();
