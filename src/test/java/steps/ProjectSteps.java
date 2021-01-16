@@ -52,5 +52,14 @@ public class ProjectSteps {
 
         Assert.assertEquals(page.getSuccessMsg(), "Successfully added the new project.");
     }
+
+    @Step
+    public void deleteProject() {
+        AddProjectPage delete = new AddProjectPage(driver, true);
+        delete.openProjectPage();
+        delete.clickDeleteBtn().click();
+        delete.clickCheckBoxBtn();
+        delete.clickOkBtn();
+    }
 }
 

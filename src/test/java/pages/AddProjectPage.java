@@ -4,11 +4,13 @@ import baseEntities.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 public class AddProjectPage extends BasePage {
 
     private static String ENDPOINT = "/admin/projects/add/1";
+    private static String ENDPOINT2 = "/admin/projects/overview";
 
     public AddProjectPage(WebDriver driver, boolean openPageByUrl) {
         super(driver, openPageByUrl);
@@ -39,6 +41,15 @@ public class AddProjectPage extends BasePage {
     @FindBy(xpath = "//div[@class='message message-success']")
     public WebElement successMsg;
 
+    @FindBy(xpath = "//div[@class='icon-small-delete']")
+    public WebElement deleteBtn;
+
+    @FindBy(xpath = "//*[@class='icon-progress-inline']/following::input")
+    public WebElement checkboxBtn;
+
+    @FindBy(xpath = "//*[@class='icon-progress-inline']/following::a[1]")
+    public WebElement okBtn;
+
     @Override
     protected void openPage() {
         driver.get(URL + ENDPOINT);
@@ -47,6 +58,11 @@ public class AddProjectPage extends BasePage {
     @Override
     public boolean isPageOpened() {
         return true;
+    }
+
+
+    public void openProjectPage() {
+        driver.get(URL + ENDPOINT2);
     }
 
     public void setInputField(String text) {
@@ -79,5 +95,18 @@ public class AddProjectPage extends BasePage {
 
     public String getSuccessMsg() {
         return successMsg.getText();
+    }
+
+    public WebElement clickDeleteBtn() {
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        return deleteBtn;
+    }
+
+    public void clickCheckBoxBtn() {
+        checkboxBtn.click();
+    }
+
+    public void clickOkBtn() {
+        okBtn.click();
     }
 }
