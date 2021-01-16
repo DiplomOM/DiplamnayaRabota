@@ -14,7 +14,6 @@ public class AddProjectPage extends BasePage {
         super(driver, openPageByUrl);
     }
 
-
     @FindBy(id = "name")
     public WebElement inputField;
 
@@ -38,6 +37,15 @@ public class AddProjectPage extends BasePage {
 
     @FindBy(xpath = "//div[@class='message message-success']")
     public WebElement successMsg;
+
+    @FindBy(xpath = "//div[@class='icon-small-delete']")
+    public WebElement deleteBtn;
+
+    @FindBy(xpath = "//*[@class='icon-progress-inline']/following::input")
+    public WebElement checkboxBtn;
+
+    @FindBy(xpath = "//*[@class='icon-progress-inline']/following::a[1]")
+    public WebElement okBtn;
 
     @Override
     protected void openPage() {
