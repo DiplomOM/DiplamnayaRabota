@@ -39,7 +39,7 @@ public class TestCasePage extends BasePage {
             "document.body.appendChild(input);" +
             "return input;";
 
-    private static String ENDPOINT = "/cases/add/1";
+    private static String ENDPOINT = "/cases/add/16";
 
     public static final Integer PRECONDITIONS_UPLOAD_BUTTON_ORDER = 0;
 
