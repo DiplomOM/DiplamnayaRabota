@@ -23,9 +23,6 @@ jobs:
 
       # run tests!
       - run:
-          command: mvn clean
-          name: Clean before test
-      - run:
           command: mvn clean verify
           name: Running tests
       - store_test_results:
